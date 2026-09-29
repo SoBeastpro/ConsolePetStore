@@ -1,4 +1,4 @@
-package ru.mirea.project.ui;
+package petstore.ui;
 
 import java.sql.SQLException;
 

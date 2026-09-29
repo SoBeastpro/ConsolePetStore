@@ -1,4 +1,4 @@
-package ru.mirea.project.util;
+package petstore.util;
 
 import java.sql.Connection;
 import java.sql.Date;

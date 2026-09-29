@@ -1,11 +1,11 @@
-package ru.mirea.project.util;
+package petstore.util;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import ru.mirea.project.model.Client;
-import ru.mirea.project.model.Reservation;
+import petstore.model.Client;
+import petstore.model.Reservation;
 
 import java.io.IOException;
 import java.io.OutputStream;

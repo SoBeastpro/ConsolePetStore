@@ -1,4 +1,4 @@
-package ru.mirea.project.model;
+package petstore.model;
 
 public enum ReservationStatus {
     CREATED,

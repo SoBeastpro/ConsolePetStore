@@ -1,6 +1,6 @@
-package ru.mirea.project;
+package petstore;
 
-import ru.mirea.project.ui.ConsoleApp;
+import petstore.ui.ConsoleApp;
 
 public class Main {
     public static void main(String[] args) {

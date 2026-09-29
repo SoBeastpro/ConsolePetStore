@@ -1,6 +1,6 @@
-package ru.mirea.project.repository;
+package petstore.repository;
 
-import ru.mirea.project.model.Reservation;
+import petstore.model.Reservation;
 
 import java.sql.SQLException;
 

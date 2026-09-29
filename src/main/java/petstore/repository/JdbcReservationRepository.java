@@ -1,9 +1,9 @@
-package ru.mirea.project.repository;
+package petstore.repository;
 
-import ru.mirea.project.exception.EntityNotFoundException;
-import ru.mirea.project.model.Reservation;
-import ru.mirea.project.model.ReservationStatus;
-import ru.mirea.project.util.DatabaseManager;
+import petstore.exception.EntityNotFoundException;
+import petstore.model.Reservation;
+import petstore.model.ReservationStatus;
+import petstore.util.DatabaseManager;
 
 import java.sql.Connection;
 import java.sql.Date;

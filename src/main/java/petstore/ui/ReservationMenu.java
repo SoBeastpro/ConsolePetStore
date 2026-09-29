@@ -1,10 +1,10 @@
-package ru.mirea.project.ui;
+package petstore.ui;
 
-import ru.mirea.project.exception.BusinessException;
-import ru.mirea.project.exception.EntityNotFoundException;
-import ru.mirea.project.model.Reservation;
-import ru.mirea.project.service.ClientService;
-import ru.mirea.project.service.ReservationService;
+import petstore.exception.BusinessException;
+import petstore.exception.EntityNotFoundException;
+import petstore.model.Reservation;
+import petstore.service.ClientService;
+import petstore.service.ReservationService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;

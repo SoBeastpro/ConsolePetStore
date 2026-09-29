@@ -1,9 +1,9 @@
-package ru.mirea.project.ui;
+package petstore.ui;
 
-import ru.mirea.project.exception.BusinessException;
-import ru.mirea.project.exception.EntityNotFoundException;
-import ru.mirea.project.model.Client;
-import ru.mirea.project.service.ClientService;
+import petstore.exception.BusinessException;
+import petstore.exception.EntityNotFoundException;
+import petstore.model.Client;
+import petstore.service.ClientService;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,17 +1,17 @@
-package ru.mirea.project.ui;
+package petstore.ui;
 
-import ru.mirea.project.exception.BusinessException;
-import ru.mirea.project.exception.EntityNotFoundException;
-import ru.mirea.project.model.ReservationStatus;
-import ru.mirea.project.repository.EntityRepository;
-import ru.mirea.project.repository.JdbcClientRepository;
-import ru.mirea.project.repository.JdbcReservationRepository;
-import ru.mirea.project.repository.ReservationRepository;
-import ru.mirea.project.service.ClientService;
-import ru.mirea.project.service.ReservationService;
-import ru.mirea.project.model.Client;
-import ru.mirea.project.util.DatabaseManager;
-import ru.mirea.project.util.ExcelExporter;
+import petstore.exception.BusinessException;
+import petstore.exception.EntityNotFoundException;
+import petstore.model.ReservationStatus;
+import petstore.repository.EntityRepository;
+import petstore.repository.JdbcClientRepository;
+import petstore.repository.JdbcReservationRepository;
+import petstore.repository.ReservationRepository;
+import petstore.service.ClientService;
+import petstore.service.ReservationService;
+import petstore.model.Client;
+import petstore.util.DatabaseManager;
+import petstore.util.ExcelExporter;
 
 import java.io.IOException;
 import java.nio.file.Path;

@@ -1,10 +1,10 @@
-package ru.mirea.project.service;
+package petstore.service;
 
-import ru.mirea.project.exception.BusinessException;
-import ru.mirea.project.exception.EntityNotFoundException;
-import ru.mirea.project.model.Client;
-import ru.mirea.project.repository.EntityRepository;
-import ru.mirea.project.repository.ReservationRepository;
+import petstore.exception.BusinessException;
+import petstore.exception.EntityNotFoundException;
+import petstore.model.Client;
+import petstore.repository.EntityRepository;
+import petstore.repository.ReservationRepository;
 
 import java.sql.SQLException;
 import java.util.HashMap;

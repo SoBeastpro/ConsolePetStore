@@ -1,7 +1,7 @@
-package ru.mirea.project.ui;
+package petstore.ui;
 
-import ru.mirea.project.model.Client;
-import ru.mirea.project.model.Reservation;
+import petstore.model.Client;
+import petstore.model.Reservation;
 
 import java.util.List;
 import java.util.Map;

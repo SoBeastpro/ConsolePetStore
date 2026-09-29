@@ -1,4 +1,4 @@
-package ru.mirea.project.exception;
+package petstore.exception;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

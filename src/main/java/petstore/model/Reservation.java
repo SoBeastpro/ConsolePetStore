@@ -1,4 +1,4 @@
-package ru.mirea.project.model;
+package petstore.model;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package ru.mirea.project.repository;
+package petstore.repository;
 
 import java.sql.SQLException;
 import java.util.List;

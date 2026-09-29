@@ -1,4 +1,4 @@
-package ru.mirea.project.model;
+package petstore.model;
 
 public class Client {
     private long id;
