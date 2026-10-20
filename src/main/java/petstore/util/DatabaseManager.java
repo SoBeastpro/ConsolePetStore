@@ -1,5 +1,9 @@
 package petstore.util;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -10,11 +14,10 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public final class DatabaseManager {
-    private static final String URL = "jdbc:postgresql://localhost:5432/PetStore";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "7g0tArk";
+    private static Properties properties;
 
     private static final String CREATE_CLIENTS = """
             CREATE TABLE IF NOT EXISTS clients (
@@ -40,7 +43,34 @@ public final class DatabaseManager {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        DriverManager.setLoginTimeout(5);
+        Properties settings = settings();
+        return DriverManager.getConnection(required(settings, "db.url"), required(settings, "db.user"), required(settings, "db.password"));
+    }
+
+    private static Properties settings() throws SQLException {
+        if (properties != null) {
+            return properties;
+        }
+        Properties loaded = new Properties();
+        try (InputStream input = DatabaseManager.class.getClassLoader().getResourceAsStream("database.properties")) {
+            if (input == null) {
+                throw new SQLException("Файл database.properties не найден.", "08001");
+            }
+            loaded.load(new InputStreamReader(input, StandardCharsets.UTF_8));
+        } catch (IOException exception) {
+            throw new SQLException("Не удалось прочитать database.properties.", "08001", exception);
+        }
+        properties = loaded;
+        return properties;
+    }
+
+    private static String required(Properties settings, String key) throws SQLException {
+        String value = settings.getProperty(key);
+        if (value == null || value.isBlank()) {
+            throw new SQLException("В database.properties не заполнено свойство " + key + ".", "08001");
+        }
+        return value.trim();
     }
 
     public static void init() throws SQLException {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="petstore.fx.controller.ReservationFormController"
+      stylesheets="@app.css"
+      styleClass="form-card"
+      prefWidth="560"
+      spacing="14">
+    <Label fx:id="formTitle" text="Новая заявка" styleClass="section-title"/>
+    <GridPane hgap="12" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="130"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="320"/>
+        </columnConstraints>
+        <Label text="Клиент" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="clientBox" maxWidth="Infinity" promptText="Выберите клиента"
+                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Кличка" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="animalField" promptText="Барсик" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label text="Дата создания" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="createdAtPicker" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label fx:id="statusLabel" text="Статус" visible="false" managed="false"
+               GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="statusBox" maxWidth="Infinity" visible="false" managed="false"
+                  GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        <Label text="Комментарий" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextArea fx:id="commentArea" prefRowCount="4" wrapText="true"
+                  GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Отмена" onAction="#onCancel" cancelButton="true"/>
+        <Button text="Сохранить" onAction="#onSave" defaultButton="true" styleClass="primary-button"/>
+    </HBox>
+</VBox>

@@ -14,7 +14,7 @@ public final class SqlErrors {
         }
     }
 
-    private static boolean isConnectionError(SQLException exception) {
+    public static boolean isConnectionError(SQLException exception) {
         String state = exception.getSQLState();
         if (state == null) {
             return true;

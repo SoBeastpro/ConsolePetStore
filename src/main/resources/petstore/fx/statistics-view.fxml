@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="petstore.fx.controller.StatisticsController"
+      stylesheets="@app.css"
+      styleClass="page"
+      prefWidth="760"
+      spacing="16">
+    <Label text="Статистика питомника" styleClass="title"/>
+    <Label text="Показатели считаются по всей базе. Диапазон дат меняет только количество заявок за период."
+           styleClass="muted" wrapText="true"/>
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Период с"/>
+        <DatePicker fx:id="fromDate" prefWidth="140"/>
+        <Label text="по"/>
+        <DatePicker fx:id="toDate" prefWidth="140"/>
+        <Button text="Рассчитать" onAction="#onCalculate" styleClass="primary-button"/>
+    </HBox>
+    <FlowPane hgap="12" vgap="12" prefWrapLength="720">
+        <VBox styleClass="metric-card">
+            <Label text="Клиентов" styleClass="muted"/>
+            <Label fx:id="clientsValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Заявок" styleClass="muted"/>
+            <Label fx:id="reservationsValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Создана" styleClass="muted"/>
+            <Label fx:id="createdValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Подтверждена" styleClass="muted"/>
+            <Label fx:id="confirmedValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Завершена" styleClass="muted"/>
+            <Label fx:id="completedValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Отменена" styleClass="muted"/>
+            <Label fx:id="cancelledValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Доля завершённых" styleClass="muted"/>
+            <Label fx:id="shareValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Самая ранняя дата" styleClass="muted"/>
+            <Label fx:id="earliestValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox styleClass="metric-card">
+            <Label text="Самая поздняя дата" styleClass="muted"/>
+            <Label fx:id="latestValue" text="—" styleClass="metric-value"/>
+        </VBox>
+        <VBox fx:id="periodCard" styleClass="metric-card" visible="false" managed="false">
+            <Label text="Заявок за период" styleClass="muted"/>
+            <Label fx:id="periodValue" text="—" styleClass="metric-value"/>
+        </VBox>
+    </FlowPane>
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Закрыть" onAction="#onClose"/>
+    </HBox>
+</VBox>

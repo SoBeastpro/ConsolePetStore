@@ -6,6 +6,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import petstore.model.Client;
 import petstore.model.Reservation;
+import petstore.model.ReservationView;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -16,6 +17,16 @@ import java.util.List;
 import java.util.Map;
 
 public class ExcelExporter {
+    public void exportCurrent(Path file, List<Client> clients, List<ReservationView> reservations) throws IOException {
+        try (Workbook workbook = new XSSFWorkbook()) {
+            writeClients(workbook.createSheet("Клиенты"), clients);
+            writeCurrentReservations(workbook.createSheet("Заявки"), reservations);
+            try (OutputStream output = Files.newOutputStream(file)) {
+                workbook.write(output);
+            }
+        }
+    }
+
     public void export(List<Client> clients, List<Reservation> reservations, Path file) throws IOException {
         Map<Long, String> names = new HashMap<>();
         for (Client client : clients) {
@@ -41,6 +52,21 @@ public class ExcelExporter {
             row.createCell(3).setCellValue(client.getEmail());
         }
         setWidths(sheet, 12, 28, 18, 28);
+    }
+
+    private void writeCurrentReservations(Sheet sheet, List<ReservationView> reservations) {
+        header(sheet.createRow(0), "ID", "Клиент", "Кличка", "Статус", "Дата создания", "Комментарий");
+        int rowIndex = 1;
+        for (ReservationView reservation : reservations) {
+            Row row = sheet.createRow(rowIndex++);
+            row.createCell(0).setCellValue(reservation.id());
+            row.createCell(1).setCellValue(reservation.clientName() == null ? "" : reservation.clientName());
+            row.createCell(2).setCellValue(reservation.animalName());
+            row.createCell(3).setCellValue(reservation.status().title());
+            row.createCell(4).setCellValue(reservation.createdAt().toString());
+            row.createCell(5).setCellValue(reservation.comment() == null ? "" : reservation.comment());
+        }
+        setWidths(sheet, 12, 28, 18, 16, 16, 40);
     }
 
     private void writeReservations(Sheet sheet, List<Reservation> reservations, Map<Long, String> names) {

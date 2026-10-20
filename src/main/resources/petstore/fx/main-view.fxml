@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="petstore.fx.controller.MainController"
+            stylesheets="@app.css">
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="2">
+                <Label text="Питомник животных" styleClass="header-title"/>
+                <Label text="Клиенты и заявки на резерв" styleClass="header-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusLabel" styleClass="header-subtitle"/>
+            <Button text="Обновить" onAction="#onRefresh"/>
+            <Button text="Статистика" onAction="#onStatistics"/>
+            <Button text="Экспорт" onAction="#onExport"/>
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Заявки">
+                    <VBox styleClass="page" spacing="10">
+                        <Label text="Поиск по кличке, комментарию и ФИО клиента. Статус и даты работают вместе."
+                               styleClass="muted" wrapText="true"/>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <TextField fx:id="searchField" promptText="Кличка, комментарий или ФИО клиента"
+                                       HBox.hgrow="ALWAYS"/>
+                            <ComboBox fx:id="statusFilter" prefWidth="170"/>
+                            <DatePicker fx:id="fromDate" prefWidth="140"/>
+                            <DatePicker fx:id="toDate" prefWidth="140"/>
+                            <Button text="Найти" onAction="#onSearch" styleClass="primary-button"/>
+                            <Button text="Сбросить" onAction="#onReset"/>
+                        </HBox>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <Label text="Сортировка"/>
+                            <ComboBox fx:id="sortField" prefWidth="180"/>
+                            <ComboBox fx:id="sortDirection" prefWidth="180"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="Добавить" onAction="#onAddReservation" styleClass="primary-button"/>
+                            <Button text="Изменить" onAction="#onEditReservation"/>
+                            <Button text="Просмотр" onAction="#onViewReservation"/>
+                            <Button text="Удалить" onAction="#onDeleteReservation" styleClass="danger-button"/>
+                        </HBox>
+                        <TableView fx:id="reservationTable" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label text="Нет заявок" styleClass="muted"/>
+                            </placeholder>
+                            <columns>
+                                <TableColumn fx:id="animalColumn" text="Кличка" prefWidth="160"/>
+                                <TableColumn fx:id="clientColumn" text="Клиент" prefWidth="200"/>
+                                <TableColumn fx:id="statusColumn" text="Статус" prefWidth="140"/>
+                                <TableColumn fx:id="createdColumn" text="Дата создания" prefWidth="150"/>
+                                <TableColumn fx:id="commentColumn" text="Комментарий" prefWidth="280"/>
+                            </columns>
+                        </TableView>
+                        <Label fx:id="reservationCountLabel" styleClass="muted"/>
+                    </VBox>
+                </Tab>
+                <Tab text="Клиенты">
+                    <VBox styleClass="page" spacing="10">
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                                <Label text="Клиенты питомника" styleClass="section-title"/>
+                                <Label text="Клиента с заявками удалить нельзя: сначала удалите его заявки."
+                                       styleClass="muted"/>
+                            </VBox>
+                            <Button text="Добавить" onAction="#onAddClient" styleClass="primary-button"/>
+                            <Button text="Изменить" onAction="#onEditClient"/>
+                            <Button text="Просмотр" onAction="#onViewClient"/>
+                            <Button text="Удалить" onAction="#onDeleteClient" styleClass="danger-button"/>
+                        </HBox>
+                        <TableView fx:id="clientTable" VBox.vgrow="ALWAYS">
+                            <placeholder>
+                                <Label text="Нет клиентов" styleClass="muted"/>
+                            </placeholder>
+                            <columns>
+                                <TableColumn fx:id="clientNameColumn" text="ФИО" prefWidth="280"/>
+                                <TableColumn fx:id="phoneColumn" text="Телефон" prefWidth="180"/>
+                                <TableColumn fx:id="emailColumn" text="Email" prefWidth="280"/>
+                            </columns>
+                        </TableView>
+                        <Label fx:id="clientCountLabel" styleClass="muted"/>
+                    </VBox>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

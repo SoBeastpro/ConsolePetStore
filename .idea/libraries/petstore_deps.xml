@@ -15,6 +15,17 @@
       <root url="jar://$USER_HOME$/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar!/" />
       <root url="jar://$USER_HOME$/.m2/repository/org/apache/logging/log4j/log4j-api/2.23.1/log4j-api-2.23.1.jar!/" />
       <root url="jar://$USER_HOME$/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-base/21.0.8/javafx-base-21.0.8-win.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-graphics/21.0.8/javafx-graphics-21.0.8-win.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-controls/21.0.8/javafx-controls-21.0.8-win.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/openjfx/javafx-fxml/21.0.8/javafx-fxml-21.0.8-win.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/slf4j/slf4j-simple/2.0.17/slf4j-simple-2.0.17.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/postgresql/postgresql/42.7.13/postgresql-42.7.13.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
