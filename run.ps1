@@ -1,9 +1,9 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
 function Find-Jdk {
     if ($env:JAVA_HOME -and (Test-Path (Join-Path $env:JAVA_HOME "bin\java.exe"))) {
-        $version = & (Join-Path $env:JAVA_HOME "bin\java.exe") -version 2>&1 | Out-String
+        $version = cmd /c "`"$env:JAVA_HOME\bin\java.exe`" -version 2>&1"
         if ($version -notmatch 'version "1\.[0-8]') {
             return $env:JAVA_HOME
         }
